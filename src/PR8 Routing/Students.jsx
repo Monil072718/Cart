@@ -64,21 +64,21 @@ export default function Students() {
       <h1 class="text-center fw-bolder mt-3 border-bottom">Students List</h1>
       <div className='filter text-center d-flex align-items-center justify-content-between m-3'>
       <Link className='btn btn-primary  me-2' to={`/student/addstudent`}>Add Student</Link>
-      <input type="text" id="" placeholder='Search by Name...'  onChange={handleSearch} />
-      <div>
+      {/* <input type="text" id="" placeholder='Search by Name...'  onChange={handleSearch} /> */}
+      {/* <div>
       <input type="radio" name="gender" id="" value="male" className='p-2' onChange={handleFilter} />
       <label htmlFor="" className='p-2 text-muted'>Male</label>
       <input type="radio" name="gender" id="" value="female" className='p-2' onChange={handleFilter} />
       <label htmlFor="" className='p-2 text-muted'>Female</label>
       <input type="radio" name="gender" id="" value="both" className='p-2' onChange={handleFilter} />
       <label htmlFor="" className='p-2 text-muted'>Both</label>
-      </div>
-      <select className="p-2  text-muted" onChange={handleSort} >
+      </div> */}
+      {/* <select className="p-2  text-muted" onChange={handleSort} >
                         <option defaultValue>Shot by ...</option>
                         <option value="name">Name</option>
                         <option value="mark">Mark</option>
                         <option value="address">Adress</option>
-                    </select>
+                    </select> */}
       {/* <button onClick={handleSort} value="address">vdx</button> */}
       </div>
       <table class="table table-bordered rounded rounded-3">
@@ -87,8 +87,8 @@ export default function Students() {
             <th class="text-black fs-4 text-center">Student Name</th>
             <th class="text-black fs-4 text-center">DOB</th>
             <th class="text-black fs-4 text-center">Gender</th>
-            <th class="text-black fs-4 text-center">Father Name</th>
-            <th class="text-black fs-4 text-center">Mother Name</th>
+            {/* <th class="text-black fs-4 text-center">Father Name</th>
+            <th class="text-black fs-4 text-center">Mother Name</th> */}
             <th class="text-black fs-4 text-center">Contact Number</th>
             <th class="text-black fs-4 text-center">Address</th>
             <th class="text-black fs-4 text-center">Mark</th>
@@ -105,9 +105,9 @@ export default function Students() {
               <td class="fs-4 text-center">{st.stname}</td>
               <td class="fs-4 text-center">{st.stdob}</td>
               <td class="fs-4 text-center">{st.gender}</td>
-              <td class="fs-4 text-center">{st.fname}</td>
+              {/* <td class="fs-4 text-center">{st.fname}</td>
 
-              <td class="fs-4 text-center">{st.mname}</td>
+              <td class="fs-4 text-center">{st.mname}</td> */}
               <td class="fs-4 text-center">{st.cnumber}</td>
               <td class="fs-4 text-center">{st.address}</td>
               <td class="fs-4 text-center">{st.mark}</td>

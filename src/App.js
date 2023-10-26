@@ -38,33 +38,33 @@ const App = () => {
 
   //   setComments([...comments, comment]);
   // };
-  const products = [
-      {
-        name: "iphone 13",
-        color: "blue",
-        type: "iphone",
-        img: "https://m.media-amazon.com/images/I/71xb2xkN5qL._SX679_.jpg"
-      },
-      {
-        name: "iphone 14",
-        color: "white",
-        type: "iphone",
-        img: "https://m.media-amazon.com/images/I/71d7rfSl0wL._SX679_.jpg"
-      },
-      {
-        name: "Samsung filp",
-        color: "black",
-        type: "samsung",
-        img: "https://m.media-amazon.com/images/I/417rGDOfx8L._SX300_SY300_QL70_FMwebp_.jpg"
-      },
-      {
-        name: "Samsung s23 ultra",
-        color: "green",
-        type: "samsung",
-        img: "https://m.media-amazon.com/images/I/51hqXIAVXAL._SX679_.jpg"
-      }
+  // const products = [
+  //     {
+  //       name: "iphone 13",
+  //       color: "blue",
+  //       type: "iphone",
+  //       img: "https://m.media-amazon.com/images/I/71xb2xkN5qL._SX679_.jpg"
+  //     },
+  //     {
+  //       name: "iphone 14",
+  //       color: "white",
+  //       type: "iphone",
+  //       img: "https://m.media-amazon.com/images/I/71d7rfSl0wL._SX679_.jpg"
+  //     },
+  //     {
+  //       name: "Samsung filp",
+  //       color: "black",
+  //       type: "samsung",
+  //       img: "https://m.media-amazon.com/images/I/417rGDOfx8L._SX300_SY300_QL70_FMwebp_.jpg"
+  //     },
+  //     {
+  //       name: "Samsung s23 ultra",
+  //       color: "green",
+  //       type: "samsung",
+  //       img: "https://m.media-amazon.com/images/I/51hqXIAVXAL._SX679_.jpg"
+  //     }
         
-  ]
+  // ]
   const [activeUser ,setActiveUser]=useState(true)
   return (
     <>
@@ -101,7 +101,7 @@ const App = () => {
       {/* <RegistrationForm /> */}
       {/* <SingUp/> */}
       
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Navbar activeUser={activeUser} />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -119,7 +119,7 @@ const App = () => {
 
           <Route path="*" element={<Page404 />} />
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
 
       {/* Test-2 */}
       {/* <div className="flex-1 px-6">
@@ -130,8 +130,8 @@ const App = () => {
           handleType={handleType}
         />
       </div> */}
-      
-      <ProductSearch products={products}/>
+
+      {/* <ProductSearch products={products}/> */}
     </>
   );
 };

@@ -38,10 +38,6 @@ body {
   .login button:hover {
     background-color: #45a049;
   }
-
-  
-
-
    /* styles.css */
 .main {
     max-width: 600px;
@@ -80,3 +76,12 @@ label {
 }
 
 /* Add more styles as needed */
+/* Rectangle 1 */
+
+/* position: absolute;
+width: 1183px;
+height: 2444px;
+left: 0px;
+top: 0px;
+
+background: #76EEB4; */

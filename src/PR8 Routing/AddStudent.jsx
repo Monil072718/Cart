@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './pr8.css'
+// import './pr8.css'
 import { useNavigate } from 'react-router-dom';
 
 const AddStudent = () => {
@@ -33,11 +33,11 @@ const AddStudent = () => {
             isValid = false;
             errors.gender = 'Please select Your Gender';
         }
-        if (!input.mark ||input.mark >= 101 || input.mark<0){
+        if (!input.mark || input.mark >= 101 || input.mark < 0) {
             isValid = false;
             errors.mark = 'Please Enter Valid Mark';
         }
-        if(!input.cnumber ||input.cnumber.length != 10){
+        if (!input.cnumber || input.cnumber.length != 10) {
             isValid = false;
             errors.cnumber = 'Please Enter Valid Number';
         }
@@ -47,27 +47,29 @@ const AddStudent = () => {
         setErrors(errors);
         return isValid;
     };
-const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-        // Update local storage
-        const updatedData = [...data, input];
-        localStorage.setItem("studentlist", JSON.stringify(updatedData));
-        // Navigate to "/student" page
-        navigate("/student");
-    }
-};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (validateForm()) {
+            // Update local storage
+            const updatedData = [...data, input];
+            localStorage.setItem("studentlist", JSON.stringify(updatedData));
+            // Navigate to "/student" page
+            navigate("/student");
+        }
+    };
 
     return (
-        <div className="main">       
-            <form id="registerForm" onSubmit={handleSubmit}>
-            <h1 class="text-center fw-bolder mt-3">Add Students</h1>
-                <div className="mb-2">
-                    <label className="text-muted fs-4">Student name</label><br />
+        <div className="row flex-wrap">
+            <form id="registerForm" className='row' onSubmit={handleSubmit}>
+                <h1 class="text-center fw-bolder mt-3">Add Students</h1>
+                <div className="mb-2 col-md-4">
+                    <label className="text-muted fs-4"> Name</label><br />
                     <input className="form-control p-2 fs-4" name="stname" type="text" onChange={handleChange} />
                     {errors.stname && <div className="text-danger">{errors.stname}</div>}
                 </div>
-                <div className="mb-2">
+
+
+                <div className="mb-2 col-md-4">
                     <label className="text-muted fs-4">Gender</label>
                     <select className="form-select fs-4 p-2 text-muted" onChange={handleChange} name="gender">
                         <option defaultValue>Select gender</option>
@@ -75,55 +77,47 @@ const handleSubmit = (e) => {
                         <option value="female">female</option>
                         {errors.gender && <div className="text-danger">{errors.gender}</div>}
                     </select>
-                    
+
                 </div>
-                <div class="mb-2">
-                        <label for="" class="text-muted fs-4">Date of Birth : </label>
-                        <input type="date" class="fs-4 text-muted p-2 border-0" id="dob" onChange={handleChange} name="stdob" />
-                        
-                    </div><br />
-                    <h2 class="fw-bolder">Parents/Guardian's details</h2>
-                    <div class="mb-2">
-                        <label for="" class="text-muted fs-4">Father's Name</label>
-                        <input class="form-control p-2 fs-4" id="Father-Name" type="text" onChange={handleChange} name="fname" />
-                    </div>
-                    <div class="mb-2">
-                        <label for="" class="text-muted fs-4">Mother's Name</label>
-                        <input class="form-control p-2 fs-4" id="Mother-name" type="text" onChange={handleChange} name="mname" />
-                    </div>
-                    <div class="mb-2">
-                        <label for="" class="text-muted fs-4" maxlength="10" minlength="2">Contect Number</label>
-                        <input class="form-control p-2 fs-4" id="contect-number" type="number" onChange={handleChange} name="cnumber"  />
-                        {errors.cnumber && <div className="text-danger">{errors.cnumber}</div>}
-                    </div>
-                    <div class="mb-2">
-                        <label for="" class="text-muted fs-4">Address</label>
-                        <input class="form-control p-2 fs-4" id="address" type="text" onChange={handleChange} name="address"  />
-                    </div><br />
-                    <div class="col-4">
-                        <label for="" class="text-muted fs-4">Mark</label>
-                        <input type="number" class="form-control p-2 fs-4" id="maths" onChange={handleChange} name="mark" />
-                        {errors.mark && <div className="text-danger">{errors.mark}</div>}
-                        
-                        
-                        <h4 id="mark-error" class="text-danger pt-2"></h4>
-                    </div>
+                <div class="mb-2 col-md-4 mt-5">
+                    <label for="" class="text-muted fs-4 ">Date of Birth : </label>
+                    <input type="date" class="fs-4 text-muted p-2 border-0" id="dob" onChange={handleChange} name="stdob" />
 
-                    <div>
+                </div><br />
+                
+                <div class="mb-2 col-md-4">
+                    <label for="" class="text-muted fs-4" maxlength="10" minlength="2">Contact Number</label>
+                    <input class="form-control p-2 fs-4" id="contect-number" type="number" onChange={handleChange} name="cnumber" />
+                    {errors.cnumber && <div className="text-danger">{errors.cnumber}</div>}
+                </div>
+                <div class="mb-2 col-md-4">
+                    <label for="" class="text-muted fs-4">Address</label>
+                    <input class="form-control p-2 fs-4" id="address" type="text" onChange={handleChange} name="address" />
+                </div><br />
+                <div class="col-4 col-md-4">
+                    <label for="" class="text-muted fs-4">Mark</label>
+                    <input type="number" class="form-control p-2 fs-4" id="maths" onChange={handleChange} name="mark" />
+                    {errors.mark && <div className="text-danger">{errors.mark}</div>}
 
-                        <label for="uEmail" class="form-label text-muted fs-4">Email</label> <br />
-                        <input type="email " class="form-control p-2 fs-4" name="uEmail" id="uEmail"
-                            onChange={handleChange} required /><br />
 
-                        {/* <label for="uPassword" class="form-label text-muted fs-4">Password</label><br />
+                    <h4 id="mark-error" class="text-danger pt-2 col-md-4"></h4>
+                </div>
+
+                <div className='col-md-4' >
+
+                    <label for="uEmail" class="form-label text-muted fs-4 ">Email</label> <br />
+                    <input type="email " class="form-control p-2 fs-4" name="uEmail" id="uEmail"
+                        onChange={handleChange} required /><br />
+
+                    {/* <label for="uPassword" class="form-label text-muted fs-4">Password</label><br />
                         <input type="password" class="form-control p-2 fs-4" name="uPassword" id="uPassword"
                             pattern=".{0}|.{6,}" onChange={handleChange} required /><br /> */}
 
-                        {/* <label for="confirmPassword" class="form-label text-muted fs-4">Confirm Password</label><br />
+                    {/* <label for="confirmPassword" class="form-label text-muted fs-4">Confirm Password</label><br />
                         <input type="password" name="Confirm Password" class="form-control p-2 fs-4" id="confirmPassword"
                             /><br /> */}
-                            </div>
-                <button className="btn btn-primary fs-4 text-white fw-bolder" id="submit">Submit</button>
+                </div>
+                <button className="btn btn-primary fs-4 text-dark fw-bolder" id="submit">Submit</button>
             </form>
         </div>
     );
