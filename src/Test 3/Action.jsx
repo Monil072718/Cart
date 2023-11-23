@@ -10,8 +10,8 @@ import './style.css'
   return (
     <>
     
-        <nav>
-           <button className='mt-2 text-primary p-1 border-1 rounded mr-3'>Add to cart</button>
+        <nav className='bg-light.bg-gradient'>
+           <button className='mt-2 mx-auto text-primary p-1 border-1 rounded '>Add to cart</button>
         </nav>
     <div className='row'>
 
