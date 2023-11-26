@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-import Product from "./Test 3/Product";
-import { Provider } from "react-redux";
-import Store from "./Test 3/Store";
-import Header from "./Test 3/Header";
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Cart from "./Test 3/Cart";
+import { Home } from "./PR10.1/Home";
+import {BrowserRouter , Routes , Route } from 'react-router-dom'
+import { Create } from "./PR10.1/Create";
+import { Update } from "./PR10.1/Update";
 const App = () => {
   return (
-    <Provider store={Store}>
-            <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route path='/' element={<Product />} />
-                    <Route path='/cart' element={<Cart />} />
-                </Routes>
-            </BrowserRouter>
-        </Provider>
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/Create" element={<Create />}></Route>
+        <Route path="/edit/:id" element={<Update/>}></Route>
+      </Routes>
+    </BrowserRouter>
+    
+    </>
   );
 };
 
