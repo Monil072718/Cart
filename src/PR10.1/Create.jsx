@@ -25,7 +25,7 @@ export const Create = () => {
           <h3>Add new User</h3>
           <form onSubmit={handleSubmit}>
             <div>
-              <label htmlFor='name'>Name</label>
+              <label htmlFor='name'>Product Name</label>
               <input
                 type='text'
                 name='name'
