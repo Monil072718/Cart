@@ -1,37 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Home from "./PR12/components/Home/Home";
-import Login from "./PR12/components/Login/Login";
-import Signup from "./PR12/components/Signup/Signup";
-
-import { auth } from "./PR12/components/firebase/firebase";
-
-
-
-
+// App.js
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./PR11/Header";
+import Product from "./PR11/Product";
+import Cart from "./PR11/Cart";
+import Login from "./PR11/Login";
+// import AuthContext from "./PR11/authContext";
+// import ProtectedRoute from "./PR11/routes/ProtectedRoute";
+import Home from "./PR11/Home";
+import Signup from "./PR11/Signup";
 function App() {
-  const [userName, setUserName] = useState("");
-
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUserName(user.displayName);
-      } else setUserName("");
-    });
-  }, []);
-
   return (
-    <div className="App">
-      <Router>
+ 
+      <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Home name={userName} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Products" element={<Product />} />
+          <Route path="/Cart" element={<Cart />} />
         </Routes>
-      </Router>
-      
-    </div>
+      </BrowserRouter>
+ 
   );
 }
 

@@ -14,7 +14,7 @@ const Product = () => {
         
         <div className='container py-5'>
             <div className="grid grid-cols-4 gap-5">
-                {
+                {   
                     state.products.map((product, i) => {
                         return <div className='bg-white rounded-lg py-3 '>
                             <div className='p-5'>
