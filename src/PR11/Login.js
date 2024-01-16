@@ -41,19 +41,31 @@ const Login = () => {
   return (
     <>
       <form action="" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          onChange={handleChange}
-        />
-        <button>Login</button>
+        <div className="form-control">
+          <label for="exampleInputEmail1" className="mb-2">Email address</label>
+          <input
+            type="email"
+            className="form-control mb-2"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email" 
+
+            name="email"
+            onChange={handleChange}
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" className="mt-2">Password</label>
+          <input
+            type="password"
+            className="form-control mt-2"
+            id="exampleInputPassword1"
+            placeholder="Password"
+            name="password"
+            onChange={handleChange}
+          />
+        </div>
+        <button className="btn btn-primary mt-3">Login</button>
       </form>
     </>
   );
