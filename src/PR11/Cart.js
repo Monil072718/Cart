@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
-// ...
+
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +16,7 @@ const Cart = () => {
       method: 'DELETE',
     })
       .then(() => {
-        // Filter out the deleted item
+        
         const updatedProducts = products.filter((product) => product.id !== item.id);
         setProducts(updatedProducts);
       })

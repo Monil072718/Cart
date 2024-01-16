@@ -49,7 +49,9 @@ function Home(props) {
       <br />
       <br />
 
-      <h2 className="text-center">{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
+      <h2 className="text-center">
+        {props.name ? `Welcome - ${props.name}` : "Login please"}
+      </h2>
     </Container>
   );
 }

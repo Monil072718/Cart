@@ -35,7 +35,7 @@ const Header = () => {
             <Link to="/Product">Products</Link>
             {! currentUser ? <> <Link to="/login">Login</Link>
                 <Link to="/signup">SignUp</Link></> :
-                <a href="/" onClick={handleLogout} to="/logout">Logout</a>
+                <button href="/" onClick={handleLogout} to="/logout">Logout</button>
             }
             <Link to="/cart" className="relative">
               Cart    </Link>
