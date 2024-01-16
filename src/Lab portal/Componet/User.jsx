@@ -33,7 +33,7 @@ const User = () => {
             dispatch({
                 type: 'fetch',
                 data: list
-              });
+            });
         });
     }
     // End 
@@ -78,22 +78,27 @@ const User = () => {
     }
     return (
         <>
-            <center>
-        <h1>Add User</h1>
-                <form action="" onSubmit={handleSubmit}>
-                    <input type="text" placeholder='Name' className='border-2' name='name' value={input ? input.name : ""} onChange={handleChange} />
-                    <br />
-                    <br />
-                    <input type="text" placeholder='Email' className='border-2' name='email' value={input ? input.email : ""} onChange={handleChange} />
-                    <br />
-                    <br />
-                    <button className='btn btn-warning ms-2'>{edit ? 'Update' : 'Add'}</button>
+           
+                <h1 className='text-center'>Add User</h1>
+                <form action="" onSubmit={handleSubmit} className='form-control container bg-info'>
+                    <div className='container'>
+                        <label htmlFor="" className='text-left mb-2'>Enter your Name:</label>
+                        <input type="text" placeholder='Name' className='border-2 form-control' name='name' value={input ? input.name : ""} onChange={handleChange} />
+                        <br />
+                      
+                        <label htmlFor="" className='text-left mb-2'>Enter your Email:</label>
+                        <input type="text" placeholder='Email' className='border-2 form-control' name='email' value={input ? input.email : ""} onChange={handleChange} />
+                        <br />
+                        
+
+                        <button className='btn btn-warning ms-2 form-control mb-2'>{edit ? 'Update' : 'Add'}</button>
+                    </div>
                 </form>
-            </center>
-            <h1>
+            
+            <h1 className='text-center'>
                 Action
             </h1>
-            <table className='table border-1'>
+            <table className='table border-1 container'>
                 <thead>
                     <tr>
                         <th> Name</th>
@@ -117,7 +122,7 @@ const User = () => {
                 </tbody>
             </table>
         </>
-    ) 
+    )
 }
 
 export default User

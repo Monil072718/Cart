@@ -69,25 +69,24 @@ const Addpc = () => {
     }
     return (
         <>
-            <center>
-        <h1>Add Pc</h1>
-                <form action="" onSubmit={handleSubmit}>
-                    <input type="text" placeholder='Name' className='border-2' name='name' value={input ? input.name : ""} onChange={handleChange} />
+           
+                <h1 className='text-center'>Add Pc</h1>
+                <form action="" onSubmit={handleSubmit} className='form-control container bg-info'>
+                    <label htmlFor="" className='text-left mb-2'>Enter Pc number:</label>
+                    <input type="text" placeholder='Enter Pc number' className='border-2 form-control' name='name' value={input ? input.name : ""} onChange={handleChange} />
                     <br />
-                    <br />
-                    
-                    
-                    <button className='btn btn-warning ms-2'>{edit ? 'Update' : 'Add'}</button>
+                    <button className='btn btn-warning ms-2 mb-2 form-control'>{edit ? 'Update' : 'Add'}</button>
                 </form>
-            </center>
-            <h1>
+           
+            <h1 className='text-center'>
                 Action
             </h1>
-            <table className='table border-1'>
+
+            <table className='table border-1 container'>
                 <thead>
                     <tr>
                         <th> Name</th>
-                        
+
                         <th> Action </th>
                     </tr>
                 </thead>
@@ -98,7 +97,7 @@ const Addpc = () => {
 
                             return <tr>
                                 <td>{item.name}</td>
-                                
+
                                 <td><button className='btn btn-primary me-1' onClick={() => handleEdit(item.id)}> Edit</button><button className='btn btn-danger' onClick={() => handleDelete(item.id)}>Delete</button></td>
                             </tr>
                         })

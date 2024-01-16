@@ -64,23 +64,23 @@ const assignList = () => {
   return (
     <>
       <div>
-        <h1 className='h1'> Dashbord </h1>
-        <div className="container">
+        <h1 className='h1 text-center mt-3'> Dashbord </h1>
+        <div className="container mt-5">
           <div className="row">
-            <div className="col-4 shadow p-3 mb-5 bg-white rounded text-center">
-              <h1 className="text-center"> {user && user.length}</h1>
-              <Link to={"/user"} className="text-center">View User</Link>
-              <h4>Total User</h4>
+            <div className="col shadow p-2 mb-5 me-2  rounded bg-warning text-center">
+              <h1 className="text-center text-dark"> {user && user.length}</h1>
+              <Link to={"/user"} className="text-center text-decoration-none text-dark">View User</Link>
+              <h4 className='text-dark'>Total User</h4>
             </div>
-            <div className="col-4 shadow p-3 mb-5 bg-white rounded text-center">
-              <h1 className="text-center"> {pc && pc.length}</h1>
-              <Link to={"/viewpc"} className="text-center">View Pc</Link>
-              <h4>Total pc</h4>
+            <div className="col shadow p-2 mb-5 me-2  bg-success rounded text-center">
+              <h1 className="text-center text-white"> {pc && pc.length}</h1>
+              <Link to={"/viewpc"} className="text-center text-decoration-none text-white">View Pc</Link>
+              <h4 className='text-white'>Total pc</h4>
             </div>
-            <div className="col-4 shadow p-3 mb-5 bg-white rounded text-center">
-              <h1 className="text-center"> {assign && assign.length}</h1>
-              <Link to={"/viewassign"}>View Assign Pc</Link>
-              <h4>Assign pc</h4>
+            <div className="col shadow p-2 me-2 mb-5 bg-secondary rounded text-center">
+              <h1 className="text-center text-white"> {assign && assign.length}</h1>
+              <Link to={"/viewassign"} className='text-decoration-none text-center text-white'>View Assign Pc</Link>
+              <h4 className='text-white'>Assign pc</h4>
             </div>
           </div>
         </div>

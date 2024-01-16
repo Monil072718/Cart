@@ -12,14 +12,14 @@ function Header() {
     const navigate = useNavigate();
     const handleLogout = () => {
         auth
-        .signOut()
-        .then(() => {
-          setUser(null);
-          navigate("/login");
-        })
-        .catch((error) => {
-          console.error('Error logging out:', error);
-        });
+            .signOut()
+            .then(() => {
+                setUser(null);
+                navigate("/login");
+            })
+            .catch((error) => {
+                console.error('Error logging out:', error);
+            });
     }
     const fetchData = (refName, setStateFunction) => {
         const dataRef = ref(database, refName);
@@ -40,20 +40,20 @@ function Header() {
         fetchData('assign', setAssign);
     }, []);
     useEffect(() => {
-        
+
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-          if (user) {
-            setActiveuser(user);
-          } else {
-            setActiveuser(null);
-          }
+            if (user) {
+                setActiveuser(user);
+            } else {
+                setActiveuser(null);
+            }
         });
-})    
-    
+    })
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
+                <div className="container">
                     <a className="navbar-brand" href="#">
                         Lab Portal
                     </a>
@@ -61,12 +61,12 @@ function Header() {
                         <ul className="navbar-nav">
                             {activeuser ? (
                                 <>
-                                <li className="nav-item">
+                                    <li className="nav-item">
                                         <Link to={"/"} className="nav-link">
                                             Home
                                         </Link>
                                     </li>
-                                <li className="nav-item">
+                                    <li className="nav-item">
                                         <Link to={"/dash"} className="nav-link">
                                             Dashbord
                                         </Link>
@@ -87,29 +87,34 @@ function Header() {
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <button className="btn btn-primary" onClick={handleLogout}>
+                                        <button className="btn btn-warning" onClick={handleLogout}>
                                             Logout
                                         </button>
                                     </li>
                                 </>
-                            ):(
+                            ) : (
                                 <>
-                                <li className="nav-item">
-                                        <Link to={"/"} className="nav-link">
+                                    <li className="nav-item">
+                                        <Link to={"/"} className="nav-link btn btn-info me-3">
                                             Home
                                         </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link to={"/login"} className="nav-link">
+                                        <Link to={"/login"} className="nav-link btn btn-success">
                                             Login
                                         </Link>
                                     </li>
                                 </>
-                            )}            
+                            )}
                         </ul>
                     </div>
                 </div>
             </nav>
+
+
+
+            
+
         </>
     );
 }

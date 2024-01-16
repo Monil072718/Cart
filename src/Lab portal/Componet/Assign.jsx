@@ -48,14 +48,14 @@ const Assign = () => {
                 console.error('Error updating document: ', error);
             }
         } else {
-            if(assign.length >0){
-                
-                assign.map(async(item)=>{
-                    if (item.username == input.username) { 
+            if (assign.length > 0) {
+
+                assign.map(async (item) => {
+                    if (item.username == input.username) {
                         alert('User already assign')
-                    }else if(item.pc == input.pc){
-                    alert('Pc already assign')
-                    }else{
+                    } else if (item.pc == input.pc) {
+                        alert('Pc already assign')
+                    } else {
                         try {
                             await push(ref(database, 'assign'), input);
                             setInput({});
@@ -63,16 +63,16 @@ const Assign = () => {
                             console.error('Error adding document: ', error);
                         }
                     }
-            })
-            } else{
+                })
+            } else {
                 try {
-                  
+
                     await push(ref(database, 'assign'), input);
                     setInput({});
                 } catch (error) {
                     console.error('Error adding document: ', error);
                 }
-            }           
+            }
         }
     };
     const handleDelete = async (id) => {
@@ -83,7 +83,7 @@ const Assign = () => {
             console.error("Error deleting document: ", e);
         }
     }
-    
+
     const handleEdit = async (selectedId) => {
         const userDoc = doc(db, 'assign', selectedId);
         const userRef = await getDoc(userDoc);
@@ -95,7 +95,16 @@ const Assign = () => {
 
     return (
         <>
-            <form action="" onSubmit={handleSubmit}>
+            <h2 className='text-center mt-3'>Assign Pc & User</h2>
+            <form action="" onSubmit={handleSubmit} className='container form-control p-4 bg-info'>
+                <select id="userDropdown" name="username" className="form-select mb-3 form-control" onChange={handleChange}>
+                    <option value={input.username || ''}>{input.username || 'Select User'}</option>
+                    {user.map((item) => (
+                        <option key={item.id} value={item.name}>
+                            {item.name}
+                        </option>
+                    ))}
+                </select>
                 <select id="pcDropdown" name="pc" className="form-select mb-3" onChange={handleChange}>
                     <option value={input.pc || ''}>{input.pc || 'Select PC'}</option>
                     {pc.map((item) => (
@@ -104,22 +113,14 @@ const Assign = () => {
                         </option>
                     ))}
                 </select>
-                <select id="userDropdown" name="username" className="form-select mb-3" onChange={handleChange}>
-                    <option value={input.username || ''}>{input.username || 'Select User'}</option>
-                    {user.map((item) => (
-                        <option key={item.id} value={item.name}>
-                            {item.name}
-                        </option>
-                    ))}
-                </select>
-                <button className="btn btn-primary mb-3">{edit ? 'Update' : 'Add'}</button>
+                <button className="btn btn-success mb-3 form-control">{edit ? 'Update' : 'Add'}</button>
             </form>
-            <h1>Action</h1>
-            <table className="table border-2">
+            <h1 className='text-center'>Action</h1>
+            <table className="table border-2 container">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th></th>
+                        <th>Pc</th>
                         <th>Action</th>
                     </tr>
                 </thead>
