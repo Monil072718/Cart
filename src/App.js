@@ -1,30 +1,21 @@
 import React from "react";
-import User from "./Lab portal/Componet/User";
-import Addpc from "./Lab portal/Componet/Addpc";
-import Assign from "./Lab portal/Componet/Assign";
-import Header from "./Lab portal/Componet/Header";
-import Dash from "./Lab portal/Componet/Dash";
-import Login from "./Lab portal/Componet/Login";
+import Products from "./Cart/Products";
+import Header from "./Cart/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Protected from "./Lab portal/Routes/Protectedroutes";
-import { Home } from "./Lab portal/Componet/Home";
+import Cart from "./Cart/Cart";
+
+
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dash" element={<Protected Cmp={Dash} />} />
-          <Route path="/user" element={<Protected Cmp={User} />} />
-          <Route path="/pc" element={<Protected Cmp={Addpc} />} />
-          <Route path="/assign" element={<Protected Cmp={Assign} />} />
-          
-        </Routes>
-      </BrowserRouter>
-
+        <BrowserRouter>
+      <Header />
+      <Routes>       
+        <Route path="/products" element={<Products/>} />       
+        <Route path="/cart" element={<Cart/>} />       
+      </Routes>
+    </BrowserRouter>
     
     </>
   );

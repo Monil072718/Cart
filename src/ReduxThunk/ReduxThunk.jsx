@@ -4,9 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 const ReduxThunk = () => {
     const state = useSelector((state) => state)
     const dispatch = useDispatch()
-
-
-
     const handleClick = () => {
         dispatch({
             type: 'INCREMENT'
